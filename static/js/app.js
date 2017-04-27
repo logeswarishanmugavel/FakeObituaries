@@ -11,18 +11,18 @@ obiapp.config(['$routeProvider','$locationProvider',
                  templateUrl: '/static/pages/welcome.html',
                  controller: 'obiController'
              }).
-             when('/newspapers_list', {
-                 templateUrl: '/static/pages/newspapers_list.html',
+             when('/newspapers', {
+                 templateUrl: '/static/pages/newspapers.html',
                  controller: 'obiController'
              }).
-             when('/people_list', {
-                 templateUrl: '/static/pages/people_list.html',
+             when('/people', {
+                 templateUrl: '/static/pages/people.html',
                  controller: 'obiController'
              }).
-            /*  when('/friends', {
-                  templateUrl: '/static/pages/friends.html',
-                  controller: 'obiController'
-              }).*/
+             when('/obits', {
+                 templateUrl: '/static/pages/obits.html',
+                 controller: 'obiController'
+             }).
              otherwise({
                  redirectTo: '/'
              });
@@ -57,6 +57,20 @@ obiapp.controller('obiController',['$scope','$http',
                 then(function(response){
                     console.log(response.data.content);
                     $scope.people = response.data.content;
+                });
+        }
+        $scope.getobits = function(){
+            var req = {
+                method: 'GET',
+                url: 'http://sample-env.qu9wzzvmes.us-east-1.elasticbeanstalk.com/obits',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            $http(req).
+                then(function(response){
+                    console.log(response.data.content);
+                    $scope.obits = response.data.content;
                 });
         }
 

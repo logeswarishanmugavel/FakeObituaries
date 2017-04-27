@@ -1,0 +1,23 @@
+<hr/>
+<div ng-controller = "obiController" ng-init = "getobits()" class ="container-fluid">
+    <div class = "table-responsive container">
+        <table class = "table table-hover">
+            <tr>
+                <th>#</th>
+                <th>Obituary ID</th>
+                <th>Person ID</th>
+                <th>Newspaper ID</th>
+                <th>Issue Date</th>
+                <th>Page No</th>
+            </tr>
+            <tr ng-repeat = "obit in obits">
+                <td>{{ $index+1 }}</td>
+                <td>{{ obit.id }}</td>
+                <td>{{ obit.personId }}</td>
+                <td>{{ obit.newspaperId }}</td>
+                <td>{{ obit.issueDate }}</td>
+                <td>{{ obit.pageNumber }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
