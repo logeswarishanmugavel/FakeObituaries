@@ -1,0 +1,26 @@
+<hr/>
+<div ng-controller = "obiController" ng-init = "getpeople()" class ="container-fluid">
+    <div class = "table-responsive container">
+        <table class = "table table-hover">
+            <tr>
+                <th>#</th>
+                <th>Person ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Birth Date</th>
+                <th>Death Date</th>
+            </tr>
+            <tr ng-repeat = "person in people">
+                <td>{{ $index+1 }}</td>
+                <td>{{ person.id }}</td>
+                <td>{{ person.firstName }}</td>
+                <td>{{ person.lastName }}</td>
+                <td ng-if = "person.gender =='m'">Male</td>
+                <td ng-if = "person.gender =='f'">Female</td>
+                <td>{{ person.birthDate }}</td>
+                <td>{{ person.deathDate }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -15,6 +15,10 @@ obiapp.config(['$routeProvider','$locationProvider',
                  templateUrl: '/static/pages/newspapers_list.html',
                  controller: 'obiController'
              }).
+             when('/people_list', {
+                 templateUrl: '/static/pages/people_list.html',
+                 controller: 'obiController'
+             }).
             /*  when('/friends', {
                   templateUrl: '/static/pages/friends.html',
                   controller: 'obiController'
@@ -38,8 +42,21 @@ obiapp.controller('obiController',['$scope','$http',
             };
             $http(req).
                 then(function(response){
-                    console.log(response.data.content);
                     $scope.newspapers = response.data.content;
+                });
+        }
+        $scope.getpeople = function(){
+            var req = {
+                method: 'GET',
+                url: 'http://sample-env.qu9wzzvmes.us-east-1.elasticbeanstalk.com/people',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            $http(req).
+                then(function(response){
+                    console.log(response.data.content);
+                    $scope.people = response.data.content;
                 });
         }
 
