@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <title> Fake Obituaries </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Angular js-->
+    <script src="/static/js/lib/angular.min.js"></script>
+    <script src="/static/js/lib/angular-route.js"></script>
+
+    <!--Bootstrap js-->
+    <script src="/static/js/lib/jquery.min.js"></script>
+    <script src="/static/js/lib/bootstrap.min.js"></script>
+
+    <!--Controllers-->
+    <script src="/static/js/app.js"></script>
+
+    <!--StyleSheets-->
+    <link href="/static/css/lib/bootstrap.css.map"/>
+    <link rel="stylesheet" href="/static/css/lib/bootstrap-3.1.1.min.css"/>
+    <link href="/static/css/lib/bootstrap-theme.css.map"/>
+    <link rel="stylesheet" href="/static/css/lib/bootstrap-theme-3.1.1.css"/>
+    <link rel="stylesheet" href="/static/css/lib/bootstrap-theme-3.1.1.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+
+
+
+</head>
+
+<body ng-app="obiapp" ng-controller="obiController">
+    <!--navigation bar-->
+        <nav class = "navbar navbar-default navbar-dark" role = "navigation">
+            <div class = "container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Fake Obituaries</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newspapers<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Add a newspaper</a></li>
+                                <li><a href="/#/newspapers_list">List of newspapers</a></li>
+                            </ul>
+                        </li>
+                        <li class="People">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">People<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Add a person</a></li>
+                                <li><a href="#">List of people</a></li>
+                                <li><a href="#">Search for a person</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Obituaries<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Add an obituary</a></li>
+                                <li><a href="#">List of obituaries</a></li>
+                                <li><a href="#">Search for an obituary</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div ng-view></div>
+
+        <hr/>
+
+    <!--Footer-->
+    <footer class="company">
+        <p><center> &copy; Ancestry, 2017.</center></p>
+    </footer>
+    </div>
+</body>
+
+</html>
