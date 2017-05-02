@@ -1,5 +1,5 @@
 <hr/>
-<div ng-controller = "obiController" ng-init = "getobits()" class ="container-fluid">
+<div ng-controller = "obiController" ng-init = "getobits();getpeople();getnewspapers();" class ="container-fluid">
     <div class = "table-responsive container">
         <table class = "table table-hover">
             <tr>
@@ -18,6 +18,31 @@
                 <td>{{ obit.issueDate }}</td>
                 <td>{{ obit.pageNumber }}</td>
             </tr>
+            <tr ng-if="visible">
+                <td></td>
+                <td>
+                </td>
+                <td>
+                    <select class = "form-control" ng-model = "$parent.personId" name="personId" required>
+                        <option ng-repeat = "person in people">{{ person.id }}</option>
+                    </select>
+                </td>
+                <td>
+                    <select class = "form-control" ng-model = "$parent.newspaperId" name = "newspaperId" required>
+                        <option ng-repeat = "newspaper in newspapers">{{ newspaper.id }}</option>
+                    </select>
+                </td>
+                <td>
+                    <input type = "text" class = "form-control" ng-model = "$parent.issueDate" name = "issueDate" required>
+                </td>
+                <td>
+                    <input type = "text" class = "form-control" ng-model = "$parent.pageNumber" name = "pageNumber" required>
+                </td>
+                <td>
+                    <button class = "btn btn-info" ng-click = "addobit()">Add</button>
+                </td>
+            </tr>
         </table>
+        <button class = "btn btn-primary" ng-click="visible = true">Add new</button>
     </div>
 </div>

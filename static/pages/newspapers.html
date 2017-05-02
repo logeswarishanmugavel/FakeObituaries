@@ -12,6 +12,18 @@
             <td>{{ newspaper.id }}</td>
             <td>{{ newspaper.name }}</td>
         </tr>
+        <tr ng-if="visible">
+            <td></td>
+            <td>
+            </td>
+            <td>
+                <input type="text" class="form-control" ng-model = "$parent.name" name="name" required>
+            </td>
+            <td>
+                <button class = "btn btn-info" ng-click = "addnewspaper()">Add</button>
+            </td>
+        </tr>
     </table>
+    <button class = "btn btn-primary" ng-click="visible = true">Add new</button>
     </div>
 </div>

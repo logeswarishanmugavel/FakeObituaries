@@ -21,6 +21,34 @@
                 <td>{{ person.birthDate }}</td>
                 <td>{{ person.deathDate }}</td>
             </tr>
-        </table>
+            <tr ng-if="visible">
+            <td></td>
+            <td>
+            </td>
+            <td>
+                <input type="text" class="form-control" ng-model = "$parent.firstName" name="firstName" required>
+            </td>
+            <td>
+                <input type="text" class="form-control" ng-model = "$parent.lastName" name="lastName" required>
+            </td>
+            <td>
+                <select class = "form-control" ng-model="$parent.gender" name = "gender" required>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" class="form-control" ng-model = "$parent.birthDate" name="birthDate" required>
+            </td>
+            <td>
+                <input type="text" class="form-control" ng-model = "$parent.deathDate" name="deathDate" required>
+            </td>
+            <td>
+                <button class = "btn btn-info" ng-click = "addperson()">Add</button>
+            </td>
+        </tr>
+    </table>
+    <button class = "btn btn-primary" ng-click="visible = true">Add new</button>
     </div>
 </div>
