@@ -1,6 +1,27 @@
 <hr/>
 <div ng-controller = "obiController" ng-init = "getobits();getpeople();getnewspapers();" class ="container-fluid">
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-md-2">
+                <b>Search By: </b>
+            </div>
+            <div class = "col-md-3">
+                <input type="text" class="col-6 form-control" ng-model="search_personId" placeholder="Enter person Id">
+            </div>
+            <div class = "col-md-1">
+                <button class="col-2 btn btn-info" type="button" ng-click = "searchobit()">Go</button>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-2">
+            </div>
+            <div class = "col-md-3">
+                <input type="text" class="col-6 form-control" ng-model="search_newspaperId" placeholder="Enter newspaper Id">
+            </div>
+        </div>
+    </div>
     <div class = "table-responsive container">
+        <p ng-model="error"></p>
         <table class = "table table-hover">
             <tr>
                 <th>#</th>

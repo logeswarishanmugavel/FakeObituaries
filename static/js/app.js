@@ -39,6 +39,43 @@ obiapp.controller('obiController',['$scope','$http',
         $scope.visible = false;
         $scope.reload = function(){window.location.reload()};
 
+        $scope.searchperson = function(){
+
+            var req = {
+                method: 'GET',
+                url: 'http://sample-env.qu9wzzvmes.us-east-1.elasticbeanstalk.com/people/search?lastName='+$scope.search_text
+            };
+            $http(req).
+                then(function(response){
+                    console.log(response);
+                    //$scope.reload();
+                    $scope.people = response.data;
+            }).error(function(status){
+                  $scope.error = "0 results found";
+            });
+        }
+
+        $scope.searchobit = function(){
+
+            if($scope.search_personId==undefined)
+                $scope.search_personId='';
+            if($scope.search_newspaperId==undefined)
+                            $scope.search_newspaperId='';
+            var req = {
+                method: 'GET',
+                url: 'http://sample-env.qu9wzzvmes.us-east-1.elasticbeanstalk.com/obits/search?personId='+$scope.search_personId+'&&newspaperId='+$scope.search_newspaperId
+            };
+            $http(req).
+                then(function(response){
+                    console.log(response);
+                    //$scope.reload();
+                    if(response.data.content.length!=0)
+                        $scope.obits = response.data.content;
+                    else
+                        $scope.error = "0 results found";
+            });
+        }
+
         $scope.addnewspaper = function(){
             var data = {};
             data["name"] = $scope.name;
